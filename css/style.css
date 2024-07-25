@@ -72,7 +72,7 @@ nav ul li a:hover {
 }
 
 .hero {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('path_to_your_hero_image.jpg');
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('path_to_your_hero_image.jpg');
     background-size: cover;
     background-position: center;
     height: 100vh;
@@ -80,35 +80,36 @@ nav ul li a:hover {
     justify-content: center;
     align-items: center;
     text-align: center;
-    color: #ffffff;
-    padding-top: 80px;
+    padding: 20px;
 }
 
 .hero-content {
-    background-color: rgba(26, 58, 94, 0.8); /* שימוש בצבע הראשי עם שקיפות */
-    padding: 2rem;
-    border-radius: 10px;
-    max-width: 80%;
+    background-color: rgba(26, 58, 94, 0.9);
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    max-width: 800px;
+    width: 90%;
 }
 
 .hero h1 {
-    font-size: 3.5rem;
+    font-size: 2.8rem;
     margin-bottom: 1rem;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
     color: #ffffff;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
 }
 
 .hero .tagline {
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     margin-bottom: 2rem;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
     color: var(--accent-color);
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
 }
 
 .cta-button {
     background-color: var(--accent-color);
     color: var(--primary-color);
-    padding: 12px 24px;
+    padding: 15px 30px;
     text-decoration: none;
     font-weight: bold;
     border-radius: 30px;
@@ -123,7 +124,6 @@ nav ul li a:hover {
     transform: translateY(-3px);
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
-
 .services, .about, .projects, .contact {
     padding: 5rem 0;
 }
@@ -206,8 +206,6 @@ nav ul li a:hover {
 }
 
 .project-slider {
-    /* Implement a slider here */
-    /* This is a placeholder. You might want to use a library like Slick for a proper slider */
     display: flex;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
@@ -268,4 +266,63 @@ form textarea {
 }
 
 footer {
-    background-color:
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    padding: 2rem 0;
+    text-align: center;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+}
+
+.footer-logo {
+    flex: 1;
+}
+
+.footer-links {
+    flex: 2;
+    display: flex;
+    justify-content: center;
+}
+
+.footer-links a {
+    color: var(--secondary-color);
+    text-decoration: none;
+    margin: 0 1rem;
+}
+
+.social-media {
+    flex: 1;
+}
+
+.social-media a {
+    color: var(--secondary-color);
+    font-size: 1.5rem;
+    margin: 0 0.5rem;
+}
+
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2.2rem;
+    }
+    .hero .tagline {
+        font-size: 1.2rem;
+    }
+    .about-content {
+        flex-direction: column;
+    }
+    .contact-container {
+        flex-direction: column;
+    }
+    .footer-content {
+        flex-direction: column;
+    }
+    .footer-links {
+        margin: 1rem 0;
+    }
+}
