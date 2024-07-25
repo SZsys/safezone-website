@@ -1,32 +1,44 @@
 :root {
-    --primary-color: #1a237e; /* כחול כהה */
-    --secondary-color: #424242; /* אפור כהה */
-    --accent-color: #ffa000; /* כתום */
+    --primary-color: #1a3a5e;
+    --secondary-color: #e8f1f5;
+    --accent-color: #ffa500;
     --text-color: #333;
-    --background-color: #f5f5f5;
+    --background-color: #fff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Heebo', Arial, sans-serif;
     line-height: 1.6;
     color: var(--text-color);
     background-color: var(--background-color);
-    margin: 0;
-    padding: 0;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
 header {
     background-color: var(--primary-color);
     padding: 1rem 0;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
 nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
 }
 
 .logo {
@@ -35,7 +47,7 @@ nav {
 }
 
 .vista-create-share {
-    max-width: 150px; /* התאם את הגודל לפי הצורך */
+    max-width: 120px;
     height: auto;
 }
 
@@ -49,52 +61,69 @@ nav ul li {
 }
 
 nav ul li a {
-    color: white;
+    color: var(--secondary-color);
     text-decoration: none;
-    font-weight: bold;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: var(--accent-color);
 }
 
 .hero {
-    background-image: url('path_to_your_hero_image.jpg');
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('path_to_your_hero_image.jpg');
     background-size: cover;
     background-position: center;
-    height: 70vh;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
-    color: white;
+    color: var(--secondary-color);
+    padding-top: 80px;
 }
 
 .hero h1 {
-    font-size: 3rem;
+    font-size: 3.5rem;
     margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
 }
 
 .tagline {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     margin-bottom: 2rem;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
 }
 
 .cta-button {
     background-color: var(--accent-color);
-    color: white;
-    padding: 10px 20px;
+    color: var(--primary-color);
+    padding: 12px 24px;
     text-decoration: none;
     font-weight: bold;
-    border-radius: 5px;
-    transition: background-color 0.3s;
+    border-radius: 30px;
+    transition: all 0.3s ease;
+    font-size: 1.1rem;
 }
 
 .cta-button:hover {
-    background-color: #ff8f00;
+    background-color: var(--primary-color);
+    color: var(--accent-color);
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
 
-.services-preview, .about-preview {
-    max-width: 1200px;
-    margin: 2rem auto;
-    padding: 0 20px;
+.services, .about, .projects, .contact {
+    padding: 5rem 0;
+}
+
+.services h2, .about h2, .projects h2, .contact h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: var(--primary-color);
 }
 
 .services-grid {
@@ -104,65 +133,130 @@ nav ul li a {
 }
 
 .service-card {
-    background-color: white;
+    background-color: var(--secondary-color);
     padding: 2rem;
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     text-align: center;
-    transition: transform 0.3s;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .service-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-10px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
 .service-card i {
     font-size: 3rem;
-    color: var(--primary-color);
+    color: var(--accent-color);
     margin-bottom: 1rem;
 }
 
-.about-preview {
-    text-align: center;
-}
-
-.learn-more {
-    display: inline-block;
-    margin-top: 1rem;
+.service-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
     color: var(--primary-color);
-    text-decoration: none;
-    font-weight: bold;
 }
 
-footer {
-    background-color: var(--secondary-color);
-    color: white;
-    text-align: center;
-    padding: 1rem 0;
+.about-content {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.about-text {
+    flex: 1;
+}
+
+.about-text ul {
+    list-style-type: none;
+    margin-top: 1rem;
+}
+
+.about-text ul li {
+    margin-bottom: 0.5rem;
+    position: relative;
+    padding-right: 1.5rem;
+}
+
+.about-text ul li::before {
+    content: '\2713';
+    color: var(--accent-color);
+    position: absolute;
+    right: 0;
+}
+
+.about-image {
+    flex: 1;
+}
+
+.about-image img {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.project-slider {
+    /* Implement a slider here */
+    /* This is a placeholder. You might want to use a library like Slick for a proper slider */
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+}
+
+.project-slide {
+    flex: 0 0 auto;
+    width: 300px;
+    margin-right: 20px;
+    scroll-snap-align: start;
+}
+
+.project-slide img {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.contact-container {
+    display: flex;
+    gap: 2rem;
+}
+
+form {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+}
+
+form input, form textarea {
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+form textarea {
+    height: 150px;
 }
 
 .contact-info {
+    flex: 1;
+}
+
+.contact-info h3 {
     margin-bottom: 1rem;
+    color: var(--primary-color);
 }
 
-@media (max-width: 768px) {
-    nav {
-        flex-direction: column;
-    }
-
-    nav ul {
-        margin-top: 1rem;
-    }
-
-    .hero h1 {
-        font-size: 2rem;
-    }
-
-    .tagline {
-        font-size: 1.2rem;
-    }
-
-    .services-grid {
-        grid-template-columns: 1fr;
-    }
+.contact-info p {
+    margin-bottom: 0.5rem;
 }
+
+.contact-info i {
+    color: var(--accent-color);
+    margin-left: 0.5rem;
+}
+
+footer {
+    background-color:
