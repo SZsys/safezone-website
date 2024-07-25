@@ -24,6 +24,7 @@ body {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
+    text-align: center;
 }
 
 header {
@@ -37,27 +38,28 @@ header {
 
 nav {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     align-items: center;
+    padding: 1rem 0;
 }
 
 .logo {
-    display: flex;
-    align-items: center;
+    margin-bottom: 1rem;
 }
 
 .vista-create-share {
-    max-width: 120px;
+    max-width: 180px;
     height: auto;
 }
 
 nav ul {
     display: flex;
+    justify-content: center;
     list-style-type: none;
 }
 
 nav ul li {
-    margin-left: 20px;
+    margin: 0 10px;
 }
 
 nav ul li a {
@@ -124,6 +126,7 @@ nav ul li a:hover {
     transform: translateY(-3px);
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
+
 .services, .about, .projects, .contact {
     padding: 5rem 0;
 }
@@ -135,10 +138,16 @@ nav ul li a:hover {
     color: var(--primary-color);
 }
 
-.services-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
+.services-grid, .about-content, .project-slider, .contact-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.service-card, .about-text, .about-image, .project-slide {
+    max-width: 600px;
+    width: 100%;
+    margin-bottom: 2rem;
 }
 
 .service-card {
@@ -167,16 +176,6 @@ nav ul li a:hover {
     color: var(--primary-color);
 }
 
-.about-content {
-    display: flex;
-    align-items: center;
-    gap: 2rem;
-}
-
-.about-text {
-    flex: 1;
-}
-
 .about-text ul {
     list-style-type: none;
     margin-top: 1rem;
@@ -195,10 +194,6 @@ nav ul li a:hover {
     right: 0;
 }
 
-.about-image {
-    flex: 1;
-}
-
 .about-image img {
     width: 100%;
     border-radius: 10px;
@@ -206,17 +201,9 @@ nav ul li a:hover {
 }
 
 .project-slider {
-    display: flex;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
-}
-
-.project-slide {
-    flex: 0 0 auto;
-    width: 300px;
-    margin-right: 20px;
-    scroll-snap-align: start;
 }
 
 .project-slide img {
@@ -225,13 +212,9 @@ nav ul li a:hover {
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
-.contact-container {
-    display: flex;
-    gap: 2rem;
-}
-
 form {
-    flex: 2;
+    max-width: 500px;
+    width: 100%;
     display: flex;
     flex-direction: column;
 }
@@ -248,7 +231,7 @@ form textarea {
 }
 
 .contact-info {
-    flex: 1;
+    text-align: center;
 }
 
 .contact-info h3 {
@@ -274,20 +257,12 @@ footer {
 
 .footer-content {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     align-items: center;
-    flex-wrap: wrap;
-    margin-bottom: 1rem;
 }
 
-.footer-logo {
-    flex: 1;
-}
-
-.footer-links {
-    flex: 2;
-    display: flex;
-    justify-content: center;
+.footer-logo, .footer-links, .social-media {
+    margin: 1rem 0;
 }
 
 .footer-links a {
@@ -296,14 +271,45 @@ footer {
     margin: 0 1rem;
 }
 
-.social-media {
-    flex: 1;
-}
-
 .social-media a {
     color: var(--secondary-color);
     font-size: 1.5rem;
     margin: 0 0.5rem;
+}
+
+@media (min-width: 768px) {
+    .services-grid {
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .service-card {
+        flex: 0 1 calc(33.333% - 2rem);
+        margin: 1rem;
+    }
+
+    .about-content {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .about-text, .about-image {
+        flex: 0 1 48%;
+    }
+
+    .contact-container {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    form {
+        flex: 0 1 60%;
+    }
+
+    .contact-info {
+        flex: 0 1 35%;
+    }
 }
 
 @media (max-width: 768px) {
@@ -312,17 +318,5 @@ footer {
     }
     .hero .tagline {
         font-size: 1.2rem;
-    }
-    .about-content {
-        flex-direction: column;
-    }
-    .contact-container {
-        flex-direction: column;
-    }
-    .footer-content {
-        flex-direction: column;
-    }
-    .footer-links {
-        margin: 1rem 0;
     }
 }
